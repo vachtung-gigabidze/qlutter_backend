@@ -1,7 +1,7 @@
 import 'package:conduit_common/conduit_common.dart';
 import 'package:conduit_core/conduit_core.dart';
 import 'package:conduit_postgresql/conduit_postgresql.dart';
-import 'package:qlutter_backend/controllers/levels.dart';
+import 'package:qlutter_backend/controllers/level_controller.dart';
 import 'package:qlutter_backend/controllers/token_controller.dart';
 import 'package:qlutter_backend/controllers/auth_controller.dart';
 // import 'package:qlutter_backend/controllers/user.dart';

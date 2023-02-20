@@ -14,7 +14,7 @@ class LevelController extends ResourceController {
 
     final aloowCORS = <String, dynamic>{"Access-Control-Allow-Origin": "*"};
     response.headers.addEntries(aloowCORS.entries);
-    CORSPolicy.defaultPolicy.allowedOrigins.add("localhost:8888/recipe");
+    CORSPolicy.defaultPolicy.allowedOrigins.add("localhost:8888/levels");
     return response;
   }
 

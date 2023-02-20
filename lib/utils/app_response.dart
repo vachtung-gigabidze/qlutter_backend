@@ -1,6 +1,5 @@
 import 'package:conduit_core/conduit_core.dart';
 import 'package:qlutter_backend/model/response_model.dart' as rm;
-import 'package:conduit/conduit.dart';
 import 'package:jaguar_jwt/jaguar_jwt.dart';
 
 class AppResponse extends Response {
