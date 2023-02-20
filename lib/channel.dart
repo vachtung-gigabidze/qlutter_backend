@@ -74,7 +74,8 @@ class QlutterBackendChannel extends ApplicationChannel {
       ..route("/user")
           .link(() => TokenController())!
           .link(() => UserController(context))
-      ..route("/levels").link(() => LevelController(context));
+      ..route("/levels").link(() => LevelController(context))
+      ..route("/comment").link(() => CommentController(context));
 
     return router;
   }
