@@ -1,5 +1,10 @@
 {
   "cSpell.words": [
-    "qlutter"
-  ]
+    "nvavia",
+    "qlutter",
+    "unawaited"
+  ],
+  
+  "workbench.colorTheme": "Visual Studio Light"
+  
 }

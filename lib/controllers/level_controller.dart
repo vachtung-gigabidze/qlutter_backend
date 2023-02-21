@@ -10,17 +10,18 @@ class LevelController extends ResourceController {
   @Operation.get()
   Future<Response> getLevels() async {
     final level = await load();
-    Response response = Response.ok(level);
+    Response response;
+    response = Response.ok(level);
 
-    final aloowCORS = <String, dynamic>{"Access-Control-Allow-Origin": "*"};
-    response.headers.addEntries(aloowCORS.entries);
+    final alowCORS = <String, dynamic>{"Access-Control-Allow-Origin": "*"};
+    response.headers.addEntries(alowCORS.entries);
     CORSPolicy.defaultPolicy.allowedOrigins.add("localhost:8888/levels");
     return response;
   }
 
   Future<dynamic> load() async {
     String ret;
-    ret = await File('./assets/classic.txt').readAsString();
+    ret = await File('./assets/private/classic.txt').readAsString();
     final levels = await LevelDto.openLevels(ret);
 
     return Future.value(levels.values.take(37).map((v) => v.toJson()).toList());

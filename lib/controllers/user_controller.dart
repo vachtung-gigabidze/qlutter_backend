@@ -7,9 +7,8 @@ import 'package:qlutter_backend/utils/app_utils.dart';
 import '../model/user.dart';
 
 class UserController extends ResourceController {
-  final ManagedContext managedContext;
-
   UserController(this.managedContext);
+  final ManagedContext managedContext;
 
   @Operation.get()
   Future<Response> getProfile(

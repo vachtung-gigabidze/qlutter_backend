@@ -1,10 +1,9 @@
 import 'dart:async';
 import 'dart:io';
-
 import 'package:conduit_core/conduit_core.dart';
+import 'package:jaguar_jwt/jaguar_jwt.dart';
 import 'package:qlutter_backend/utils/app_env.dart';
 import 'package:qlutter_backend/utils/app_response.dart';
-import 'package:jaguar_jwt/jaguar_jwt.dart';
 
 class TokenController extends Controller {
   @override

@@ -1,25 +1,25 @@
-import 'package:conduit_core/conduit_core.dart';
-import 'user.dart';
+// import 'package:conduit_core/conduit_core.dart';
+// import 'user.dart';
 
-class LevelComment extends ManagedObject<_LevelComment>
-    implements _LevelComment {}
+// class LevelComment extends ManagedObject<_LevelComment>
+//     implements _LevelComment {}
 
-class _LevelComment {
-  @primaryKey
-  int? id;
+// class _LevelComment {
+//   @primaryKey
+//   int? id;
 
-  @Relate(#comments)
-  User? user;
+//   @Relate(#comments)
+//   User? user;
 
-  @Column()
-  int? levelId;
+//   @Column()
+//   int? levelId;
 
-  @Column()
-  String? text;
+//   @Column()
+//   String? text;
 
-  @Column(nullable: true)
-  String? photo;
+//   @Column(nullable: true)
+//   String? photo;
 
-  @Column()
-  DateTime? datetime;
-}
+//   @Column()
+//   DateTime? datetime;
+// }

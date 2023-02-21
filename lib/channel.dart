@@ -8,9 +8,9 @@ import 'package:qlutter_backend/controllers/auth_controller.dart';
 import 'package:qlutter_backend/controllers/level_controller.dart';
 import 'package:qlutter_backend/controllers/token_controller.dart';
 import 'package:qlutter_backend/controllers/user_controller.dart';
-import 'package:qlutter_backend/controllers/user_progress_controller.dart';
+// import 'package:qlutter_backend/controllers/user_progress_controller.dart';
 
-import 'controllers/comment.dart';
+// import 'controllers/comment.dart';
 
 class QlutterBackendChannel extends ApplicationChannel {
   late ManagedContext context;
@@ -44,7 +44,7 @@ class QlutterBackendChannel extends ApplicationChannel {
     );
   }
 
-  String ddMMyyyyhhmm(DateTime inputDate) {
+  String dateToString(DateTime inputDate) {
     final outputFormat = DateFormat('MM/dd/yyyy HH:mm');
     final outputDate = outputFormat.format(inputDate);
     return '${outputDate}';
@@ -53,13 +53,13 @@ class QlutterBackendChannel extends ApplicationChannel {
   @override
   Future prepare() async {
     CORSPolicy.defaultPolicy.allowedOrigins = [
-      "172.20.20.4:8888", "0.0.0.0"
-      // "https://dart.nvavia.ru",
+      "*", "172.20.20.4:8888", "0.0.0.0",
+      "https://wb.nvavia.ru",
       // "localhost:8888",
     ];
     options?.address = "0.0.0.0";
     logger.onRecord.listen((rec) => print(
-        "${rec} ${ddMMyyyyhhmm(rec.time)} ${rec.error ?? ""} ${rec.stackTrace ?? ""}"));
+        "${rec} ${dateToString(rec.time)} ${rec.error ?? ""} ${rec.stackTrace ?? ""}"));
     final dataModel = ManagedDataModel.fromCurrentMirrorSystem();
     final persistence = PostgreSQLPersistentStore(
         "admin", "root", "127.0.0.1", 5432, "postgres");
@@ -75,9 +75,9 @@ class QlutterBackendChannel extends ApplicationChannel {
       ..route("/user")
           .link(() => TokenController())!
           .link(() => UserController(context))
-      ..route("/levels").link(() => LevelController(context))
-      ..route("/comment").link(() => CommentController(context))
-      ..route("/progress").link(() => UserProgressController(context));
+      ..route("/levels").link(() => LevelController(context));
+    // ..route("/comment").link(() => CommentController(context))
+    // ..route("/progress").link(() => UserProgressController(context));
 
     return router;
   }

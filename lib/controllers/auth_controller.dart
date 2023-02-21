@@ -1,23 +1,22 @@
 import 'package:conduit_core/conduit_core.dart';
-import 'package:qlutter_backend/model/response_model.dart' as RM;
+import 'package:jaguar_jwt/jaguar_jwt.dart';
+import 'package:qlutter_backend/model/response_model.dart' as rm;
 import 'package:qlutter_backend/utils/app_env.dart';
 import 'package:qlutter_backend/utils/app_response.dart';
 import 'package:qlutter_backend/utils/app_utils.dart';
-import 'package:jaguar_jwt/jaguar_jwt.dart';
 
 import '../model/user.dart';
 
 class AppAuthController extends ResourceController {
-  final ManagedContext managedContext;
-
   AppAuthController(this.managedContext);
+  final ManagedContext managedContext;
 
   @Operation.post()
   Future<Response> signIn(@Bind.body() User user) async {
     if (user.password == null || user.username == null) {
       return Response.badRequest(
           body:
-              RM.ResponseModel(message: "Поля password username обязательны"));
+              rm.ResponseModel(message: "Поля password username обязательны"));
     }
 
     try {
@@ -69,7 +68,7 @@ class AppAuthController extends ResourceController {
   Future<Response> signUp(@Bind.body() User user) async {
     if (user.password == null || user.username == null || user.email == null) {
       return Response.badRequest(
-          body: RM.ResponseModel(
+          body: rm.ResponseModel(
               message: "Поля password username email обязательны"));
     }
     final salt = generateRandomSalt();
@@ -111,7 +110,7 @@ class AppAuthController extends ResourceController {
       final user = await managedContext.fetchObjectWithID<User>(id);
       if (user?.refreshToken != refreshToken) {
         return Response.unauthorized(
-            body: RM.ResponseModel(message: "Token is not valid"));
+            body: rm.ResponseModel(message: "Token is not valid"));
       } else {
         await _updateTokens(id, managedContext);
         final user = await managedContext.fetchObjectWithID<User>(id);
