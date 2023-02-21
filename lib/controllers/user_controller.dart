@@ -1,10 +1,8 @@
 import 'dart:io';
-
 import 'package:conduit_core/conduit_core.dart';
 import 'package:qlutter_backend/utils/app_const.dart';
 import 'package:qlutter_backend/utils/app_response.dart';
 import 'package:qlutter_backend/utils/app_utils.dart';
-import 'package:conduit/conduit.dart';
 
 import '../model/user.dart';
 

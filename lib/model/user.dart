@@ -1,5 +1,5 @@
 import 'package:conduit_core/conduit_core.dart';
-import 'comment.dart';
+import 'level_comment.dart';
 
 class User extends ManagedObject<_User> implements _User {}
 
@@ -31,5 +31,5 @@ class _User {
   @Column()
   String? avatar;
 
-  ManagedSet<Comment>? comments;
+  ManagedSet<LevelComment>? comments;
 }

@@ -1,13 +1,14 @@
 import 'package:conduit_common/conduit_common.dart';
 import 'package:conduit_core/conduit_core.dart';
-import 'package:conduit_postgresql/conduit_postgresql.dart';
-import 'package:qlutter_backend/controllers/level_controller.dart';
-import 'package:qlutter_backend/controllers/token_controller.dart';
-import 'package:qlutter_backend/controllers/auth_controller.dart';
 // import 'package:qlutter_backend/controllers/user.dart';
 import 'package:conduit_open_api/v3.dart';
+import 'package:conduit_postgresql/conduit_postgresql.dart';
 import 'package:intl/intl.dart';
+import 'package:qlutter_backend/controllers/auth_controller.dart';
+import 'package:qlutter_backend/controllers/level_controller.dart';
+import 'package:qlutter_backend/controllers/token_controller.dart';
 import 'package:qlutter_backend/controllers/user_controller.dart';
+import 'package:qlutter_backend/controllers/user_progress_controller.dart';
 
 import 'controllers/comment.dart';
 
@@ -75,7 +76,8 @@ class QlutterBackendChannel extends ApplicationChannel {
           .link(() => TokenController())!
           .link(() => UserController(context))
       ..route("/levels").link(() => LevelController(context))
-      ..route("/comment").link(() => CommentController(context));
+      ..route("/comment").link(() => CommentController(context))
+      ..route("/progress").link(() => UserProgressController(context));
 
     return router;
   }

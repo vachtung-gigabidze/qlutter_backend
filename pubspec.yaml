@@ -15,7 +15,7 @@ dependencies:
   intl: ^0.18.0
   json_annotation: ^4.8.0
 
-dev_dependencies:
+dev_dependencies:  
   test: ^1.16.5
   conduit_test: ^4.3.6
   build_runner: ^2.3.3

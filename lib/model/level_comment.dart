@@ -1,9 +1,10 @@
 import 'package:conduit_core/conduit_core.dart';
 import 'user.dart';
 
-class Comment extends ManagedObject<_Comment> implements _Comment {}
+class LevelComment extends ManagedObject<_LevelComment>
+    implements _LevelComment {}
 
-class _Comment {
+class _LevelComment {
   @primaryKey
   int? id;
 
