@@ -24,6 +24,6 @@ class LevelController extends ResourceController {
     ret = await File('./assets/private/classic.txt').readAsString();
     final levels = await LevelDto.openLevels(ret);
 
-    return Future.value(levels.values.take(37).map((v) => v.toJson()).toList());
+    return Future.value(levels.values.take(46).map((v) => v.toJson()).toList());
   }
 }

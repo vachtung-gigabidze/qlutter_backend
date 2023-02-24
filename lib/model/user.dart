@@ -1,4 +1,5 @@
 import 'package:conduit_core/conduit_core.dart';
+import 'package:qlutter_backend/model/user_progress.dart';
 import 'level_comment.dart';
 
 class User extends ManagedObject<_User> implements _User {}
@@ -28,8 +29,9 @@ class _User {
   @Column(omitByDefault: true)
   String? hashPassword;
 
-  @Column()
+  @Column(nullable: true)
   String? avatar;
 
   ManagedSet<LevelComment>? comments;
+  ManagedSet<UserProgress>? progress;
 }

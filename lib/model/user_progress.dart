@@ -8,7 +8,7 @@ class _UserProgress {
   @primaryKey
   int? id;
 
-  @Relate(#comments)
+  @Relate(#progress)
   User? user;
 
   @Column()
