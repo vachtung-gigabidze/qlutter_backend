@@ -19,4 +19,7 @@ class _UserProgress {
 
   @Column()
   DateTime? datetime;
+
+  @Column()
+  int? seconds;
 }
