@@ -78,7 +78,8 @@ class QlutterBackendChannel extends ApplicationChannel {
           .link(() => UserController(context))
       ..route("/levels").link(() => LevelController(context))
       ..route("/comment").link(() => LevelCommentController(context))
-      ..route("/progress").link(() => UserProgressController(context));
+      ..route("/progress").link(() => UserProgressController(context))
+      ..route("/best").link(() => BestProgressController(context));
 
     return router;
   }
