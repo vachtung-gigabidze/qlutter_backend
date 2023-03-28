@@ -7,9 +7,11 @@ import 'package:intl/intl.dart';
 import 'package:qlutter_backend/controllers/auth_controller.dart';
 import 'package:qlutter_backend/controllers/level_comment.dart';
 import 'package:qlutter_backend/controllers/level_controller.dart';
+import 'package:qlutter_backend/controllers/room_controller.dart';
 import 'package:qlutter_backend/controllers/token_controller.dart';
 import 'package:qlutter_backend/controllers/user_controller.dart';
 import 'package:qlutter_backend/controllers/user_progress_controller.dart';
+import 'package:qlutter_backend/qlutter_backend.dart';
 
 // import 'controllers/comment.dart';
 
@@ -79,7 +81,9 @@ class QlutterBackendChannel extends ApplicationChannel {
       ..route("/levels").link(() => LevelController(context))
       ..route("/comment").link(() => LevelCommentController(context))
       ..route("/progress").link(() => UserProgressController(context))
-      ..route("/best").link(() => BestProgressController(context));
+      ..route("/best").link(() => BestProgressController(context))
+      ..route('/rooms').link(() => RoomsController())
+      ..route('/chat').link(() => ChatController());
 
     return router;
   }
