@@ -29,17 +29,19 @@ class RoomsController extends ResourceController {
   }
 }
 
-class ChatController extends ResourceController {
+class GameController extends ResourceController {
   static final _socket = <String, WebSocket>{};
 
   void handleEvent(String event, String user) {
     final json = jsonDecode(event);
     final to = json['to'] as String;
     final msg = json['msg'] as String;
+    logger.info(logger.level, "From $user To $to Send $msg");
+
     if (_socket.containsKey(to)) {
       _socket[to]!.add(msg);
     }
-    if (to == "broadcast") {
+    if (to == "game") {
       _socket.forEach((key, value) {
         _socket[key]!.add(msg);
       });
@@ -51,7 +53,7 @@ class ChatController extends ResourceController {
   }
 
   @Operation.get()
-  Future<Response?> newChat(@Bind.query('user') String user) async {
+  Future<Response?> newGame(@Bind.query('user') String user) async {
     final httpRequest = request!.raw;
     _socket[user] = await WebSocketTransformer.upgrade(httpRequest);
     _socket[user]!.listen((event) => handleEvent(event as String, user));

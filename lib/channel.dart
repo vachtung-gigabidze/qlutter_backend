@@ -57,7 +57,7 @@ class QlutterBackendChannel extends ApplicationChannel {
   Future prepare() async {
     CORSPolicy.defaultPolicy.allowedOrigins = [
       "*", "172.20.20.4:8888", "0.0.0.0",
-      "https://wb.nvavia.ru",
+      "https://dart.nvavia.ru",
       // "localhost:8888",
     ];
     options?.address = "0.0.0.0";
@@ -83,7 +83,7 @@ class QlutterBackendChannel extends ApplicationChannel {
       ..route("/progress").link(() => UserProgressController(context))
       ..route("/best").link(() => BestProgressController(context))
       ..route('/rooms').link(() => RoomsController())
-      ..route('/chat').link(() => ChatController());
+      ..route('/game').link(() => GameController());
 
     return router;
   }
